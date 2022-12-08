@@ -30,8 +30,8 @@ public class ForeignCurrency extends HttpServlet {
 		int currencyIndex = Integer.parseInt(currency_);
 		
 		double exchangeAmount = won / currencyRate[currencyIndex];
-		String data = String.format("%,d", won) + " 원 → ";
-		data += String.format("%,.2f", exchangeAmount) + " " + FOREIGN_CURRENCY[currencyIndex];
+		String data = String.format("%,d 원 → ", won);
+		data += String.format("%,.2f %s", exchangeAmount, FOREIGN_CURRENCY[currencyIndex]);
 		System.out.println();
 		
 		response.setCharacterEncoding("utf-8");

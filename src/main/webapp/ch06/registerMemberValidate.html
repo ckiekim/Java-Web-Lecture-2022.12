@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        td { text-align: center; padding: 3px; }
+    </style>
+    <title>회원 가입</title>
+    <script>
+        function validate() {
+            let formReg = document.formReg;
+            let uid = formReg.uid.value;
+            let pwd = formReg.pwd.value;
+            let pwd2 = formReg.pwd2.value;
+            console.log(uid, pwd, pwd2);
+            // 검증: uid, pwd length가 4 이상, pwd == pwd2 ==> 전송
+            if (uid.length >= 4 && pwd.length >= 4 && pwd == pwd2) {
+                formReg.method = 'post';
+                formReg.action = '/jw/ch06/regMember';
+                formReg.submit();
+            } else {
+                alert("uid와 패스워드는 길이가 4 이상이어야 하고, 입력한 패스워드가 서로 일치해야 합니다.");
+            }
+        }
+    </script>
+</head>
+<body style="margin: 40px;">
+    <h1>회원 가입</h1>
+    <hr>
+    <!-- <form action="/jw/ch06/regMember" method="post" name="formReg"> -->
+    <form name="formReg">
+        <table>
+            <tr>
+                <td>사용자 ID</td>
+                <td><input type="text" name="uid"></td>
+            </tr>
+            <tr>
+                <td>패스워드</td>
+                <td><input type="password" name="pwd"></td>
+            </tr>
+            <tr>
+                <td>패스워드 확인</td>
+                <td><input type="password" name="pwd2"></td>
+            </tr>
+            <tr>
+                <td>성명</td>
+                <td><input type="text" name="uname"></td>
+            </tr>
+            <tr>
+                <td>생년월일</td>
+                <td><input type="date" name="birthDay"></td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <input type="radio" name="gender" value="남" checked>남
+                    <input type="radio" name="gender" value="여">여
+                </td>
+            </tr>
+            <tr>
+                <td>취미</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="baseball" checked>야구
+                    <input type="checkbox" name="hobby" value="soccer">축구
+                    <input type="checkbox" name="hobby" value="basketball">농구
+                    <input type="checkbox" name="hobby" value="tennis">테니스
+                    <input type="checkbox" name="hobby" value="golf">골프
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="validate()">제출</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
