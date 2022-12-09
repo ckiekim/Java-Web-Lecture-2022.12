@@ -34,9 +34,9 @@ public class CustomerServlet extends HttpServlet {
 		out.print("<body style=\"margin: 40px;\">");
 		out.print("	<h1>회원 리스트</h1>");
 		out.print("	<hr>");
-		out.print("	  <table border=\\\"1\\\"");
+		out.print("	  <table border=\"1\">");
 		out.print("	    <tr>");
-		out.print("	      <th>사용자ID</th><th>사용자명</th><th>가입일</th>");
+		out.print("	      <th>사용자ID</th><th>사용자명</th><th>가입일</th><th>액션</th>");
 		out.print("	    </tr>");
 		
 		for (Customer c: list) {
@@ -44,10 +44,14 @@ public class CustomerServlet extends HttpServlet {
 			out.print("       <td>" + c.getUid() + "</td>");
 			out.print("       <td>" + c.getUname() + "</td>");
 			out.print("       <td>" + c.getRegDate().toString() + "</td>");
+			out.print("       <td>" + "<a href=\"/jw/ch07/deleteCustomer?uid="+ c.getUid() +"\">수정</a>" + 
+					"<a href=\"/jw/ch07/deleteCustomer?uid=" + c.getUid() +"\">삭제</a>" + "</td>");
 			out.print("	    <tr>");
 		}
 		
 		out.print("	</table>");
+		out.print(" <br>");
+		out.print(" <a href=\"/jw/ch07/registerCustomer.html\">회원 가입</a>");
 		out.print("</body>");
 		out.print("</html>");
 	}

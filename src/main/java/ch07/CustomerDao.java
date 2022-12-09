@@ -36,7 +36,6 @@ public class CustomerDao {
 			// Delete 대신에 isDeleted 필드를 1로 변경
 			pStmt.executeUpdate();
 			pStmt.close();
-			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -55,7 +54,6 @@ public class CustomerDao {
 			// Update 실행
 			pStmt.executeUpdate();
 			pStmt.close();
-			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -79,7 +77,6 @@ public class CustomerDao {
 			}
 			rs.close();
 			pStmt.close();
-			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -105,7 +102,6 @@ public class CustomerDao {
 			}
 			rs.close();
 			stmt.close();
-			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -122,7 +118,6 @@ public class CustomerDao {
 			
 			pStmt.executeUpdate();
 			pStmt.close();
-			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
