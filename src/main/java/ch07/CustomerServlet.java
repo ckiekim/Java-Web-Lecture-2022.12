@@ -20,10 +20,6 @@ public class CustomerServlet extends HttpServlet {
 		CustomerDao dao = new CustomerDao();
 		List<Customer> list = dao.getCustomers();
 		
-		String data = "";
-		for (Customer c: list)
-			data += c.toString() + "\n";
-		
 		response.setCharacterEncoding("utf-8");		// 굳이 안해도 인코딩 오류 발생하지 않음
 		response.setContentType("text/html; charset=utf-8");	// 반드시 세팅해주어야 함
 		PrintWriter out = response.getWriter();
@@ -38,11 +34,20 @@ public class CustomerServlet extends HttpServlet {
 		out.print("<body style=\"margin: 40px;\">");
 		out.print("	<h1>회원 리스트</h1>");
 		out.print("	<hr>");
+		out.print("	  <table border=\\\"1\\\"");
+		out.print("	    <tr>");
+		out.print("	      <th>사용자ID</th><th>사용자명</th><th>가입일</th>");
+		out.print("	    </tr>");
 		
-		String[] pList = data.split("\n");
-		for (String p: pList) 
-			out.print("		<p>" + p + "<p>");
+		for (Customer c: list) {
+			out.print("	    <tr>");
+			out.print("       <td>" + c.getUid() + "</td>");
+			out.print("       <td>" + c.getUname() + "</td>");
+			out.print("       <td>" + c.getRegDate().toString() + "</td>");
+			out.print("	    <tr>");
+		}
 		
+		out.print("	</table>");
 		out.print("</body>");
 		out.print("</html>");
 	}
