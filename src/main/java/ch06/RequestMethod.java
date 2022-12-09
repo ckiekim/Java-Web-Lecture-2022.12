@@ -19,14 +19,14 @@ public class RequestMethod extends HttpServlet {
 		String contextPath = request.getContextPath();		// jw
 		String method = request.getMethod();				// GET
 		String requestUri = request.getRequestURI();		// /jw/ch06/reqMethod
-		String getServerName = request.getServerName();		// localhost
+		String serverName = request.getServerName();		// localhost
 		String servletPath = request.getServletPath();		// /ch06/reqMethod
 		String pathInfo = request.getPathInfo();			// null
 		
 		String data = "contextPath: " + contextPath + "\n";
 		data += "method: " + method + "\n";
 		data += "requestUri: " + requestUri + "\n";
-		data += "serverName: " + getServerName + "\n";
+		data += "serverName: " + serverName + "\n";
 		data += "servletPath: " + servletPath + "\n";
 		data += "pathInfo: " + pathInfo + "\n";
 		System.out.println(data);
