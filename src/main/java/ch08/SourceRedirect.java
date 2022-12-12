@@ -3,11 +3,13 @@ package ch08;
 import java.io.IOException;
 import java.net.URLEncoder;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class SourceRedirect
@@ -23,6 +25,12 @@ public class SourceRedirect extends HttpServlet {
 		System.out.println(msg);
 		
 		request.setAttribute("addr", "서울시 광진구 구의동");
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("addr", "서울시 광진구 구의동");
+		
+		ServletContext ctx = getServletContext();
+		ctx.setAttribute("addr", "서울시 광진구 구의동");
 		response.sendRedirect("/jw/ch08/dst1?msg=" + msg);
 	}
 
