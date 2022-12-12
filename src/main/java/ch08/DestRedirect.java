@@ -20,6 +20,7 @@ public class DestRedirect extends HttpServlet {
 		String msg = request.getParameter("msg");
 		// URLDecocer.decode(msg, "utf-8");
 		
+		// Client를 갔다가 온 request 이므로 src1에서 보낸 request와 다르다.
 		String addr = (String)request.getAttribute("addr");
 		
 		response.setContentType("text/html; charset=utf-8");
