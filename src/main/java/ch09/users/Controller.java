@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 /**
  * Servlet implementation class Controller
  */
@@ -60,18 +62,24 @@ public class Controller extends HttpServlet {
 			String pwd = request.getParameter("pwd");
 			User u = dao.getUserInfo(uid);
 			if (u.getUid() != null) {		// uid 가 존재
-				System.out.println(u.getUid() + ", " + u.getUname());
-				session.setAttribute("uid", u.getUid());
-				session.setAttribute("uname", u.getUname());
-				
-				// Welcome message
-				out.print("<script>");
-				out.print("alert('" + u.getUname() + "님 환영합니다." + "');");
-				out.print("location.href = '" + "/jw/ch09/users/list" + "';");
-				out.print("</script>");
+				if (BCrypt.checkpw(pwd, u.getPwd())) {
+					// System.out.println(u.getUid() + ", " + u.getUname());
+					session.setAttribute("uid", u.getUid());
+					session.setAttribute("uname", u.getUname());
+					
+					// Welcome message
+					out.print("<script>");
+					out.print("alert('" + u.getUname() + "님 환영합니다." + "');");
+					out.print("location.href = '" + "/jw/ch09/users/list" + "';");
+					out.print("</script>");
+				} else {
+					// 재 로그인 페이지
+					out.print("<script>");
+					out.print("alert('잘못된 패스워드 입니다. 다시 입력하세요.');");
+					out.print("location.href = '" + "/jw/ch09/users/login.html" + "';");
+					out.print("</script>");
+				}
 			} else {				// uid 가 없음
-				System.out.println("없는 사용자입니다.");
-				
 				// 회원 가입 페이지로 안내
 				out.print("<script>");
 				out.print("alert('회원 가입 페이지로 이동합니다.');");
