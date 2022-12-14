@@ -51,23 +51,35 @@ public class UserServiceController extends HttpServlet {
 					session.setAttribute("uname", u.getUname());
 					
 					// Welcome message
-					out.print("<script>");
-					out.print("alert('" + u.getUname() + "님 환영합니다." + "');");
-					out.print("location.href = '" + "/jw/ch09/users/list" + "';");
-					out.print("</script>");
+//					out.print("<script>");
+//					out.print("alert('" + u.getUname() + "님 환영합니다." + "');");
+//					out.print("location.href = '" + "/jw/ch09/users/list" + "';");
+//					out.print("</script>");
+					request.setAttribute("msg", u.getUname() + "님 환영합니다.");
+					request.setAttribute("url", "/jw/ch09/users/list");
+					rd = request.getRequestDispatcher("/ch09/users/alertMsg");
+					rd.forward(request, response);
 				} else {
 					// 재 로그인 페이지
-					out.print("<script>");
-					out.print("alert('잘못된 패스워드 입니다. 다시 입력하세요.');");
-					out.print("location.href = '" + "/jw/ch09/users/login.html" + "';");
-					out.print("</script>");
+//					out.print("<script>");
+//					out.print("alert('잘못된 패스워드 입니다. 다시 입력하세요.');");
+//					out.print("location.href = '" + "/jw/ch09/users/login.html" + "';");
+//					out.print("</script>");
+					request.setAttribute("msg", "잘못된 패스워드 입니다. 다시 입력하세요.");
+					request.setAttribute("url", "/jw/ch09/users/login.html");
+					rd = request.getRequestDispatcher("/ch09/users/alertMsg");
+					rd.forward(request, response);
 				}
 			} else {				// uid 가 없음
 				// 회원 가입 페이지로 안내
-				out.print("<script>");
-				out.print("alert('회원 가입 페이지로 이동합니다.');");
-				out.print("location.href = '" + "/jw/ch09/users/register.html" + "';");
-				out.print("</script>");
+//				out.print("<script>");
+//				out.print("alert('회원 가입 페이지로 이동합니다.');");
+//				out.print("location.href = '" + "/jw/ch09/users/register.html" + "';");
+//				out.print("</script>");
+				request.setAttribute("msg", "회원 가입 페이지로 이동합니다.");
+				request.setAttribute("url", "/jw/ch09/users/register.html");
+				rd = request.getRequestDispatcher("/ch09/users/alertMsg");
+				rd.forward(request, response);
 			}
 			break;
 		case "logout":
