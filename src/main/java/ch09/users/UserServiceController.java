@@ -53,20 +53,20 @@ public class UserServiceController extends HttpServlet {
 					// Welcome message
 					request.setAttribute("msg", u.getUname() + "님 환영합니다.");
 					request.setAttribute("url", "/jw/ch09/users/list");
-					rd = request.getRequestDispatcher("/ch09/users/alertMsg");
+					rd = request.getRequestDispatcher("/ch09/users/alertMsg.jsp");
 					rd.forward(request, response);
 				} else {
 					// 재 로그인 페이지
 					request.setAttribute("msg", "잘못된 패스워드 입니다. 다시 입력하세요.");
 					request.setAttribute("url", "/jw/ch09/users/login.html");
-					rd = request.getRequestDispatcher("/ch09/users/alertMsg");
+					rd = request.getRequestDispatcher("/ch09/users/alertMsg.jsp");
 					rd.forward(request, response);
 				}
 			} else {				// uid 가 없음
 				// 회원 가입 페이지로 안내
 				request.setAttribute("msg", "회원 가입 페이지로 이동합니다.");
 				request.setAttribute("url", "/jw/ch09/users/register.html");
-				rd = request.getRequestDispatcher("/ch09/users/alertMsg");
+				rd = request.getRequestDispatcher("/ch09/users/alertMsg.jsp");
 				rd.forward(request, response);
 			}
 			break;
