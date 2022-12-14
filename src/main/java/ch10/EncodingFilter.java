@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Servlet Filter implementation class EncodingFilter
  */
-@WebFilter("/ch10/*")
+//@WebFilter("/ch10/*")
 public class EncodingFilter extends HttpFilter implements Filter {
     ServletContext context;
     

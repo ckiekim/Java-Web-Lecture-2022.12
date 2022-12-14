@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSessionBindingEvent;
  * Application Lifecycle Listener implementation class LoginListener
  *
  */
-@WebListener
+//@WebListener
 public class LoginListener implements HttpSessionAttributeListener {
 	static int total_user = 0;
 	
