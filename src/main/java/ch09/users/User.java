@@ -10,6 +10,11 @@ public class User {
 	private LocalDate regDate;
 	
 	User() {}
+	User(String uid, String uname, String email) {
+		this.uid = uid;
+		this.uname = uname;
+		this.email = email;
+	}
 	User(String uid, String pwd, String uname, String email) {
 		this.uid = uid;
 		this.pwd = pwd;
