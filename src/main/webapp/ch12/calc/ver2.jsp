@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>한자리수 계산기</title>
     <style>
         button  {height: 50px; width: 50px; text-align: center; font-size: 20px;}
         .result {height: 50px; text-align: right; padding: 0px 5px;
@@ -14,7 +14,7 @@
     </style>
 </head>
 <body style="margin: 50px;">
-    <h1>계산기 Ver.2</h1>
+    <h1>계산기 Ver.2 (한자리수 계산기)</h1>
     <hr>
     <form action="/jw/ch12/calc/ver2" method="post">
         <table>
