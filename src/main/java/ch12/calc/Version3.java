@@ -51,9 +51,8 @@ public class Version3 extends HttpServlet {
 		} else if (op_ != null && !op_.equals("=")) {	// 연산자를 눌렀을 때
 			if (op_.equals("C") && !stack.isEmpty()) {	// BS(Back Space)를 눌렀을 때
 				String s = (String) stack.pop();
-				System.out.println(s + ", " + getEval(stack));
-				if (!isOperation(s)) {
-					s = (s.length() <= 1) ? "" : s.substring(0, s.length()-1);
+				if (!isOperation(s) && s.length() > 1) {
+					s = s.substring(0, s.length()-1);
 					stack.push(s);
 				} 
 			} else {
