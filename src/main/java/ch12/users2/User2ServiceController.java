@@ -112,7 +112,6 @@ public class User2ServiceController extends HttpServlet {
 				email = request.getParameter("email");
 				u = new User(uid, uname, email);
 				dao.updateUser(u);
-				//session.removeAttribute("uname");
 				session.setAttribute("uname", uname);
 				response.sendRedirect("/jw/ch12/users2/list");
 			}
