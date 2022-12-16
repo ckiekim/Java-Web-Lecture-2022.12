@@ -14,7 +14,7 @@
 <body style="margin: 40px;">
     <h1>회원 가입</h1>
     <hr>
-    <form action="/jw/ch12/users2/register" method="post">
+    <form action="/jw/ch14/users3/register" method="post">
         <table>
             <tr>
                 <td>아이디:</td>
