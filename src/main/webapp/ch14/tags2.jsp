@@ -34,9 +34,30 @@
                     <tr><th>아이디</th><th>이름</th><th>주소</th><th>인덱스</th></tr>
                 <c:forEach var="member" items="${members}" varStatus="loop">
                     <tr>
-                    	<td>${member.id}</td>
-                    	<td>${member.name}</td>
-                    	<td>${member.addr}</td>
+                    	<td>
+                    	<c:if test="${loop.first}">
+                    		<div class="text-bg-success">${member.id}</div>
+                    	</c:if>
+                    	<c:if test="${not loop.first}">
+                    		${member.id}
+                    	</c:if>
+                    	</td>
+                    	<td>
+                    	<c:if test="${member.addr.country eq '한국'}">
+                    		<div class="text-bg-primary">${member.name}</div>
+                    	</c:if>
+                    	<c:if test="${member.addr.country eq '미국'}">
+                    		<div class="text-bg-info">${member.name}</div>
+                    	</c:if>
+                    	</td>
+                    	<td>
+                    	<c:if test="${loop.last}">
+                    		<div class="text-bg-danger">${member.addr}</div>
+                    	</c:if>
+                    	<c:if test="${not loop.last}">
+                    		${member.addr}
+                    	</c:if>
+                    	</td>
                     	<td>${loop.index}/${loop.count}</td>
                     </tr>
                 </c:forEach>
